@@ -7,7 +7,7 @@ Lab 11: Spring for Full-Stack Web Apps
 
 
 #How to run it
-- Clone the repo: https://github.com/jManij/java-fundamentals
+- Clone the repo: https://github.com/jManij/SpringFramework
 
 Testing from terminal:
    - cd to songr
