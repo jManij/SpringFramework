@@ -1,4 +1,4 @@
-package controllers;
+package manishlab11.example.songr.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,7 +10,7 @@ public class HomeController {
 
     @GetMapping("/hello")
     public String getRoot() {
-        System.out.println("somebody got the root");
+        System.out.println("somebody got the root *****************************************************");
         return "hello";
     }
 

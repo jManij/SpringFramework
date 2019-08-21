@@ -8,7 +8,7 @@ public class SongrApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(SongrApplication.class, args);
-        System.out.println("App is running");
+        System.out.println("App is running!");
     }
 
 }
