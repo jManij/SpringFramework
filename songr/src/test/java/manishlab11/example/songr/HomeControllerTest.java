@@ -1,6 +1,6 @@
 package manishlab11.example.songr;
 
-import org.junit.Before;
+import manishlab11.example.songr.controllers.HomeController;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
