@@ -13,8 +13,8 @@ public class Song {
     int trackNumber;
 
 
-    @OneToOne
-    Album album;  //A song has one album
+    @ManyToOne
+    Album album;
 
     public Song(Album album, String title, int length, int trackNumber) {
         this.album = album;
@@ -22,6 +22,10 @@ public class Song {
         this.length = length;
         this.trackNumber = trackNumber;
     }
+
+//    public Song(String title) {
+//        this.title = title;
+//    }
 
     public Song() {
     }
