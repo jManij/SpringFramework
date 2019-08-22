@@ -1,6 +1,8 @@
 package manishlab11.example.songr.controllers;
 import manishlab11.example.songr.models.Album;
 import manishlab11.example.songr.models.AlbumRepository;
+import manishlab11.example.songr.models.Song;
+import manishlab11.example.songr.models.SongRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,16 +18,10 @@ public class AlbumController {
 
     @Autowired
     AlbumRepository albumRepository;
+    SongRepository songRepository;
 
     @GetMapping("/albums")
     public String getAllAlbums(Model m) {
-//        Movie theMovie = new Movie("Forrest Gump", "Robert Zemeckis", Date.valueOf("1994-07-06"), 72.0, "PG-13");
-//        Movie secondMovie = new Movie("Shawshank Redemption", "Frank Darabont", Date.valueOf("1994-09-23"), 91.0, "R");
-//        Movie[] movies = new Movie[]{theMovie, secondMovie};
-//        List<Album> albums = songRepository.findAll();
-//        m.addAttribute("album", albums);
-//        Album album = new Album("Fireworks", "Katy Perry", 5, 24, "www.google.com");
-//        songRepository.save(album);  //saves into db
         List<Album> albums = albumRepository.findAll();
         m.addAttribute("album", albums);
         return "allalbums";
@@ -47,22 +43,21 @@ public class AlbumController {
 
 
     @PostMapping("/albums")
-    public RedirectView addAlbum(String title, String artist, int songCount, int length, String imageURL) {
+    public RedirectView addAlbum(String title, String artist, String songTitle, int songCount, int length, String imageURL) {
+
         Album album = new Album(title, artist, Integer.valueOf(songCount),length, imageURL);
-//        System.out.println(album.toString());
         albumRepository.save(album);
         return new RedirectView("/albums");
     }
 
 
     @PostMapping("/albums/{id}/songs")
-    public RedirectView addSong(String title, int length, int trackNumber) {
-        System.out.println(title);
-
+    public RedirectView addSong(@PathVariable long id, String title, int length, int trackNumber) {
+        Album album = albumRepository.findById(id).get();
+        System.out.println("Post mapping: " + album.getArtist() + title + length + trackNumber);
+        Song song = new Song(album,title, Integer.valueOf(length), Integer.valueOf(trackNumber));
+        songRepository.save(song);
         return new RedirectView("/albums/{id}/songs");
     }
-
-
-
 
 }

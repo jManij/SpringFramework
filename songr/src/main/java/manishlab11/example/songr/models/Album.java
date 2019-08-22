@@ -19,7 +19,7 @@ public class Album {
     List<Song> songs;
 
 
-    public Album(String title, String artist, int songCount, int length, String imageURL) {
+    public Album(String title, String artist,  int songCount, int length, String imageURL) {
         this.title = title;
         this.artist = artist;
 //        this.songs.add(song);
