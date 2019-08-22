@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>One album with all info</title>
+</head>
+<body>
+<p>
+    <span th:text="${album.title}"></span>
+</p>
+
+<p>
+    Written by <span th:text="${album.artist}"></span>
+</p>
+
+
+<div>
+    <h3>Add a new Song to the album</h3>
+    <form method="POST" th:action="${'/albums/' + album.id + '/songs'}">
+        Title:<input name="title" />
+        Length (in seconds):<input name="length" />
+        Track Number:<input name="trackNumber" />
+        <input type="submit" />
+    </form>
+</div>
+
+</body>
+</html>

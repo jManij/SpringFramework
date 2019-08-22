@@ -2,25 +2,38 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>All Movies</title>
+    <title>All Albums</title>
 </head>
 <body>
-<h1>All the Songs</h1>
+<h1>All the Albums</h1>
 
-<!--<div th:each="song : ${movies}" class="movie">-->
-<!--    <h3 th:id="${movie.title}" th:text="${movie.title}">Movie Title</h3>-->
+<div th:each="al : ${album}" class="albums">
+<!--    <h1 th:id="${al.title}" th:text="${al.title}"><a href="/onealbum">heading</a></h1>-->
+    <p>
+        <a th:href="${ '/albums/' + al.id}">Album Name <span th:text="${al.title}"></span></a>
+    </p>
+
 <!--    <p>-->
-<!--        Directed by <span th:text="${movie.director}"></span>-->
+<!--        <a th:href="${ '/directors/' + movie.director.id}">Directed by <span th:text="${movie.director}"></span></a>-->
 <!--    </p>-->
-<!--</div>-->
+<!--    <h3 th:id="${al.title}" th:text="${al.title}"><a href="/onealbum"></a>Album Title</h3>-->
+<!--    <p>-->
+<!--        Written by <span th:text="${al.artist}"></span>-->
+<!--    </p>-->
+</div>
 
-<!--<div>-->
-<!--    <form method="POST" action="/movies">-->
-<!--        Title:<input name="title" />-->
-<!--        Director:<input name="director" />-->
-<!--        Release date:<input type="date" name="releaseDate" />-->
-<!--        <input type="submit" />-->
-<!--    </form>-->
-<!--</div>-->
+<div>
+    <form method="POST" action="/albums">
+        Title:<input name="title" />
+        Artist:<input name="artist" />
+<!--        Song Title:<input name="imageURL" />-->
+        Song count:<input name="songCount" />
+        Song length:<input name="length" />
+        Image URL:<input name="imageURL" />
+
+        <input type="submit" />
+    </form>
+</div>
 </body>
 </html>
+
