@@ -21,25 +21,10 @@ public class SongController {
     @GetMapping("/songs")
     public String getOneDirector(Model m) {
         List<Song> songs = songRepository.findAll();
-
-//    public String getOneDirector(@PathVariable long id, Model m) {
-//        Director d = directorRepository.findById(id).get();
-//        System.out.println(d.getMovies().size());
         m.addAttribute("song", songs);
         return "/songs";
     }
 
-//    @PostMapping("/movies")
-//    public RedirectView addMovie(String title, String albumTitle, int length, int trackNumberString) {
-//
-//        Director d = directorRepository.findByFirstNameAndLastName(names[0], names[1]);
-//        if (d == null) {
-//            d = new Director(director);
-//            directorRepository.save(d);
-//        }
-//        Movie m = new Movie(title, d, Date.valueOf(releaseDate), 0.0, "R");
-//        movieRepository.save(m);
-//        return new RedirectView("/movies");
-//    }
+
 }
 
